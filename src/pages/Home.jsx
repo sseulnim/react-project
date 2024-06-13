@@ -26,7 +26,7 @@ export default function Home({ user }) {
     <Container>
       <MonthNavigation month={month} setMonth={setMonth} />
       <CreateExpense user={user} month={month} />
-      <ExpenseList />
+      <ExpenseList month={month} />
     </Container>
   );
 }

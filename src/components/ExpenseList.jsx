@@ -62,7 +62,7 @@ const ExpenseDetails = styled.div`
   }
 `;
 
-export default function ExpenseList() {
+export default function ExpenseList(props) {
   const navigate = useNavigate();
 
   const {
@@ -74,7 +74,9 @@ export default function ExpenseList() {
   // console.log("isLoading:", isLoading);
   // console.log("expense:", expenses);
 
-  // const filteredExpenses = expenses.filter((expense) => expense.month === 1);
+  const filteredExpenses = expenses.filter(
+    (expense) => expense.month === props.month
+  );
 
   if (isLoading) {
     return <div>로딩중 입니다</div>;
@@ -83,7 +85,7 @@ export default function ExpenseList() {
   return (
     <Section>
       <ExpenseItemList>
-        {expenses.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             key={expense.id}
             onClick={() => {
