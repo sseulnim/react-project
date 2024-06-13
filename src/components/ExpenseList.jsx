@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getExpenses } from "../../lib/api/expense";
+import { Loding } from "./Loding";
 
 const ExpenseItemList = styled.div`
   display: flex;
@@ -79,7 +80,7 @@ export default function ExpenseList(props) {
   );
 
   if (isLoading) {
-    return <div>로딩중 입니다</div>;
+    return <Loding />;
   }
 
   return (
